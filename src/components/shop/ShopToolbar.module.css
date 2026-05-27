@@ -1,0 +1,133 @@
+/* ─────────────────────────────────────────
+   SHOP TOOLBAR
+───────────────────────────────────────── */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  background: #ffffff;
+  border: 1.5px solid #F9E4E8;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* ── Left ── */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.results {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: #7A5560;
+}
+
+.results strong {
+  font-weight: 600;
+  color: #1A0A0D;
+}
+
+/* Mobile filter button — hidden on desktop */
+.mobileFilterBtn {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A0A0D;
+  background: #FEE8EC;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mobileFilterBtn:hover { background: #FCCFD8; }
+
+/* ── Right ── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Sort */
+.sortWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sortLabel {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #B08A92;
+  white-space: nowrap;
+}
+
+.sortSelect {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A0A0D;
+  background: #FFFAF8;
+  border: 1.5px solid #F0DDE0;
+  border-radius: 8px;
+  padding: 8px 32px 8px 12px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23B08A92' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: border-color 0.2s;
+}
+
+.sortSelect:focus { border-color: #E8627A; }
+
+/* Grid toggle */
+.gridToggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1.5px solid #F0DDE0;
+  border-radius: 8px;
+  padding: 3px;
+  background: #FFFAF8;
+}
+
+.gridBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  color: #B08A92;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.gridBtn:hover    { background: #FEE8EC; color: #E8627A; }
+.gridBtnActive    { background: #E8627A; color: #fff; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .mobileFilterBtn { display: flex; }
+  .gridToggle      { display: none; }
+}
+
+@media (max-width: 540px) {
+  .toolbar    { padding: 10px 14px; }
+  .sortLabel  { display: none; }
+  .results    { font-size: 12px; }
+}

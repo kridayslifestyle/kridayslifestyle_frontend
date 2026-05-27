@@ -1,0 +1,180 @@
+.section {
+  margin-top: 80px;
+}
+
+.top {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 42px;
+
+  margin-bottom: 20px;
+}
+
+.ratingWrap {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.bigRating {
+  font-size: 72px;
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.stars {
+  color: #ffb800;
+
+  font-size: 22px;
+
+  margin-bottom: 6px;
+}
+
+.count {
+  color: #777;
+}
+
+.formCard {
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 32px;
+
+  border: 1px solid #f0e3e6;
+
+  margin-bottom: 40px;
+}
+
+.formTitle {
+  font-size: 28px;
+
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+
+  border-radius: 18px;
+
+  border: 1px solid #eadce0;
+
+  padding: 16px 18px;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.textarea {
+  min-height: 140px;
+
+  resize: vertical;
+}
+
+.submitBtn {
+  height: 56px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: #111;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background: #e8627a;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.card {
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 28px;
+
+  border: 1px solid #f0e3e6;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 16px;
+}
+
+.user {
+  font-size: 22px;
+
+  margin-bottom: 8px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.verified {
+  background: #e8f8ee;
+
+  color: #15803d;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.date {
+  color: #777;
+}
+
+.reviewText {
+  color: #444;
+
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+
+  .cardTop {
+    flex-direction: column;
+  }
+
+  .bigRating {
+    font-size: 56px;
+  }
+
+}

@@ -1,0 +1,158 @@
+/* ─────────────────────────────────────────
+   FEATURED BANNER — Most Loved Collection
+───────────────────────────────────────── */
+
+.section {
+  position: relative;
+  background: #FDE8EE;
+  overflow: hidden;
+  padding: 72px 0;          /* breathing room top & bottom */
+}
+
+/* Dot pattern */
+.dots {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image: radial-gradient(circle, #f9a8b8 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Two-column layout ── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* ─────────────────────────────────────────
+   LEFT
+───────────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #E8627A;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #1A0A0D;
+  margin-bottom: 24px;
+}
+
+.desc {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #7A5560;
+  max-width: 400px;
+  margin-bottom: 36px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #E8627A;
+  color: #fff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 15px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 28px rgba(232, 98, 122, 0.35);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn:hover {
+  background: #C94D65;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(232, 98, 122, 0.45);
+}
+
+/* ─────────────────────────────────────────
+   RIGHT — Portrait card (like image 2)
+───────────────────────────────────────── */
+.right {
+  display: flex;
+  justify-content: center;   /* centered, not pushed to edge */
+  align-items: center;
+}
+
+/* The card — contained portrait frame, all 4 corners rounded */
+.imageCard {
+  width: 340px;              /* medium size — not full width */
+  height: 480px;             /* portrait ratio */
+  border-radius: 28px;       /* fully rounded all corners */
+  overflow: hidden;
+  background: #F5C5C5;
+  box-shadow: 0 24px 64px rgba(232, 98, 122, 0.18);
+  flex-shrink: 0;
+  /* subtle inner border like image 2 */
+  outline: 6px solid rgba(255,255,255,0.25);
+  outline-offset: -6px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 6s ease;
+}
+
+.imageCard:hover .image {
+  transform: scale(1.04);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .container { padding: 0 40px; gap: 40px; }
+  .imageCard { width: 300px; height: 420px; }
+}
+
+@media (max-width: 768px) {
+  .section   { padding: 56px 0; }
+  .container {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+    gap: 40px;
+  }
+  .left {
+    align-items: center;
+    text-align: center;
+  }
+  .desc { text-align: center; }
+  .right { justify-content: center; }
+  .imageCard { width: 280px; height: 380px; }
+}

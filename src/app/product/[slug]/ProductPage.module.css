@@ -1,0 +1,77 @@
+/* ─────────────────────────────────────────
+   PRODUCT PAGE LAYOUT
+───────────────────────────────────────── */
+
+.page {
+  background: #ffffff;
+  padding-top: 110px;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Main product grid ── */
+.productGrid {
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 720px) minmax(420px, 1fr);
+
+  gap: 72px;
+
+  align-items: start;
+
+  padding: 40px 0 56px;
+
+}
+
+/* Sticky info on scroll */
+.infoCol {
+
+  position: sticky;
+
+  top: 100px;
+
+  align-self: start;
+
+
+  max-width: 520px;
+
+}
+
+/* ── Tabs section ── */
+.tabsSection {
+  border-top: 1px solid #F9E4E8;
+  padding: 52px 0 64px;
+  padding-top: 80px;
+}
+
+.reviewSection {
+  padding-bottom: 60px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .container    { padding: 0 32px; }
+  .productGrid  { gap: 40px; }
+}
+
+@media (max-width: 768px) {
+
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .infoCol {
+    position: static;
+    max-width: 100%;
+  }
+
+}
+

@@ -1,0 +1,149 @@
+/* ─────────────────────────────────────────
+   SHOP PAGE LAYOUT
+───────────────────────────────────────── */
+
+.page {
+  background: #ffffff;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Page header ── */
+.pageHeader {
+  background: #FDE8EE;
+  padding: 40px 0 36px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #F9E4E8;
+}
+
+.breadcrumb {
+  font-size: 12.5px;
+  color: #B08A92;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.breadcrumb span { color: #D4B8BC; }
+.breadcrumb strong { color: #5C3D28; font-weight: 500; }
+
+.pageTitle {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400;
+  color: #1A0A0D;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.pageDesc {
+  font-size: 15px;
+  font-weight: 300;
+  color: #7A5560;
+}
+
+/* ── Main layout ── */
+.layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Sidebar wrapper */
+.sidebarWrap {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+/* Content area */
+.content {
+  flex: 1;
+  min-width: 0; /* prevent overflow */
+}
+
+/* Mobile overlay */
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 10, 13, 0.4);
+  z-index: 199;
+  backdrop-filter: blur(2px);
+}
+
+.desktopSidebar {
+  display: block;
+}
+
+@media (max-width: 900px) {
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  /* HIDE SIDEBAR BY DEFAULT */
+  .sidebarWrap {
+
+    position: fixed !important;
+
+    top: 0;
+    left: -100%;
+
+    width: 320px;
+
+    max-width: 85vw;
+
+    height: 100vh;
+
+    background: #fff;
+
+    z-index: 9999;
+
+    overflow-y: auto;
+
+    transition: left 0.3s ease;
+
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+
+    padding: 20px;
+
+    display: block !important;
+  }
+
+  /* OPEN SIDEBAR */
+  .sidebarOpen {
+    left: 0 !important;
+  }
+
+  /* CONTENT FULL WIDTH */
+  .content {
+    width: 100%;
+  }
+
+  .mobileOverlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    z-index: 9998;
+  }
+
+  .desktopSidebar {
+    display: none;
+  }
+}
+   

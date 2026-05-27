@@ -1,0 +1,258 @@
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+
+.footer {
+  background: #1A0A0D;
+  color: #fff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+}
+
+/* Shared container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ─────────────────────────────────────────
+   TOP STRIP
+───────────────────────────────────────── */
+.topStrip {
+  background: #E8627A;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.topStripText {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.03em;
+}
+
+/* ─────────────────────────────────────────
+   BODY
+───────────────────────────────────────── */
+.body {
+  padding: 64px 0 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+/* 4-column grid */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+/* ─────────────────────────────────────────
+   BRAND COLUMN
+───────────────────────────────────────── */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Logo */
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  text-decoration: none;
+  margin-bottom: 18px;
+}
+
+.logoMain {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.logoAccent {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: #E8627A;
+  letter-spacing: 0.04em;
+  margin-left: 2px;
+}
+
+.brandDesc {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.75;
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+
+/* Social icons */
+.socials {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.socialBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.socialBtn:hover {
+  border-color: #E8627A;
+  color: #E8627A;
+  background: rgba(232,98,122,0.1);
+}
+
+/* Contact info */
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contactLink:hover {
+  color: #E8627A;
+}
+
+/* ─────────────────────────────────────────
+   LINK COLUMNS
+───────────────────────────────────────── */
+.linkCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.colTitle {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footerLink {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s, padding-left 0.2s;
+  display: inline-block;
+}
+
+.footerLink:hover {
+  color: #E8627A;
+  padding-left: 4px;
+}
+
+/* ─────────────────────────────────────────
+   BOTTOM BAR
+───────────────────────────────────────── */
+.bottomBar {
+  padding: 22px 0;
+}
+
+.bottomInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.copy {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.3);
+  font-weight: 300;
+}
+
+/* Payment chips */
+.payments {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.payLabel {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-right: 4px;
+}
+
+.payChip {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 3px 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.madeIn {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  font-weight: 300;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .brandCol { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+  .body { padding: 48px 0 40px; }
+  .container { padding: 0 20px; }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .brandCol { grid-column: span 2; }
+  .bottomInner { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+  .brandCol { grid-column: span 1; }
+  .topStripText { font-size: 11px; }
+}

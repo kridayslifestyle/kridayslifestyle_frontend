@@ -1,0 +1,325 @@
+/* ─────────────────────────────────────────
+   NAVBAR
+───────────────────────────────────────── */
+
+.header {
+  position: fixed;
+  top: var(--announce-height, 36px); /* sits below the announcement bar */
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--navbar-height, 68px);
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Transparent on top of hero, solid once scrolled */
+.header.scrolled {
+  background: rgba(253, 248, 245, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* ── Inner row ── */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 24px;
+}
+
+/* ─────────────────────────────────────────
+   LOGO
+───────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.logoMain {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--black);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.logoAccent {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--rose);
+  letter-spacing: 0.04em;
+  margin-left: 1px;
+}
+
+/* ─────────────────────────────────────────
+   DESKTOP NAV LINKS
+───────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--charcoal);
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Underline slide-in on hover */
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s ease;
+  border-radius: 1px;
+}
+
+.navLink:hover {
+  color: var(--rose);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+}
+
+/* Sale badge */
+.navBadge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: var(--rose);
+  padding: 2px 7px;
+  border-radius: var(--r-pill);
+  line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────
+   ACTION ICONS
+───────────────────────────────────────── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--charcoal);
+  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.iconBtn:hover {
+  background: var(--rose-pale);
+  color: var(--rose);
+}
+
+/* Cart button slight emphasis */
+.cartBtn {
+  background: var(--blush);
+}
+.cartBtn:hover {
+  background: var(--rose-soft);
+  color: var(--rose-dark);
+}
+
+/* Count badge */
+.badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: var(--r-pill);
+  background: var(--charcoal);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.badgeRose {
+  background: var(--rose);
+}
+
+/* ─────────────────────────────────────────
+   HAMBURGER  (mobile only)
+───────────────────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.hamburger:hover {
+  background: var(--rose-pale);
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.hamburger.isOpen span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.hamburger.isOpen span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.hamburger.isOpen span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ─────────────────────────────────────────
+   MOBILE MENU
+───────────────────────────────────────── */
+.mobileMenu {
+  position: fixed;
+  top: calc(var(--announce-height, 36px) + var(--navbar-height, 68px));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--warm-white);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 0 32px;
+  /* Hidden by default */
+  transform: translateY(-16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.32s var(--ease), opacity 0.32s var(--ease);
+}
+
+.mobileMenu.mobileOpen {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--charcoal);
+  border-bottom: 1px solid var(--border-soft);
+  transition: background 0.2s, color 0.2s;
+}
+
+.mobileLink:hover {
+  background: var(--rose-pale);
+  color: var(--rose);
+}
+
+/* Shop all CTA at bottom */
+.mobileCta {
+  padding: 0 24px;
+}
+
+.mobileShopBtn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  background: var(--rose);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--r);
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+
+.mobileShopBtn:hover {
+  background: var(--rose-dark);
+}
+
+/* Dark overlay behind menu */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 10, 13, 0.35);
+  z-index: 98;
+  backdrop-filter: blur(2px);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 960px) {
+  .nav {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoMain {
+    font-size: 22px;
+  }
+  .logoAccent {
+    font-size: 11px;
+  }
+}

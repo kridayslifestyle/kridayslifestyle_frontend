@@ -1,0 +1,121 @@
+/* ─────────────────────────────────────────
+   PRODUCT TABS
+───────────────────────────────────────── */
+
+.wrapper { width: 100%; }
+
+/* Tab row */
+.tabRow {
+  display: flex;
+  border-bottom: 2px solid #F9E4E8;
+  gap: 0;
+  margin-bottom: 32px;
+}
+
+.tab {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  color: #B08A92;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 24px 14px;
+  position: relative;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #E8627A;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.tab:hover { color: #E8627A; }
+
+.tabActive {
+  color: #1A0A0D;
+  font-weight: 500;
+}
+.tabActive::after { transform: scaleX(1); }
+
+/* Panel */
+.panel { animation: fadeIn 0.25s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Description */
+.desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: #5C3D28;
+  line-height: 1.85;
+  margin-bottom: 20px;
+  max-width: 640px;
+}
+
+.features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #5C3D28;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.featureDot { color: #E8627A; font-size: 11px; margin-top: 3px; flex-shrink: 0; }
+
+/* Details table */
+.table { width: 100%; border-collapse: collapse; max-width: 480px; }
+
+.tableRow { border-bottom: 1px solid #F9E4E8; }
+.tableRow:last-child { border-bottom: none; }
+
+.tableKey {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1A0A0D;
+  padding: 12px 0;
+  width: 140px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.tableVal {
+  font-size: 14px;
+  font-weight: 300;
+  color: #5C3D28;
+  padding: 12px 0;
+}
+
+/* Shipping items */
+.shippingItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #F9E4E8;
+}
+.shippingItem:last-child { border-bottom: none; }
+
+.shippingIcon  { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.shippingTitle { font-size: 14px; font-weight: 600; color: #1A0A0D; margin-bottom: 4px; }
+.shippingDesc  { font-size: 13.5px; font-weight: 300; color: #7A5560; line-height: 1.7; }
+
+@media (max-width: 640px) {
+  .tab { padding: 10px 14px 12px; font-size: 13px; }
+}

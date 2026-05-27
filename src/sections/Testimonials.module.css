@@ -1,0 +1,200 @@
+/* ─────────────────────────────────────────
+   TESTIMONIALS — Auto-scroll marquee
+───────────────────────────────────────── */
+
+.section {
+  position: relative;
+  background: #FDE8EE;
+  padding: 80px 0 90px;
+  overflow: hidden;
+}
+
+/* Dot pattern */
+.dots {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: radial-gradient(circle, #f9a8b8 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Container — only for header ── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #E8627A;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 400;
+  color: #1A0A0D;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   MARQUEE
+───────────────────────────────────────── */
+
+/* Wrapper — clips overflow & positions fades */
+.marqueeOuter {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* The rolling track */
+.marqueeTrack {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  /* Roll left continuously */
+  animation: marqueeScroll 32s linear infinite;
+  padding: 8px 0 16px;
+}
+
+/* Pause on hover — feels premium */
+.marqueeOuter:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Left & right gradient fades */
+.fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, #FDE8EE, transparent);
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, #FDE8EE, transparent);
+}
+
+/* ─────────────────────────────────────────
+   REVIEW CARD
+───────────────────────────────────────── */
+.card {
+  flex: 0 0 380px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 28px 32px;
+  box-shadow: 0 4px 24px rgba(232, 98, 122, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Subtle lift on hover since we pause marquee */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 40px rgba(232, 98, 122, 0.16);
+  transform: translateY(-4px);
+}
+
+/* ── Top row: avatar + name + stars ── */
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #E8627A;
+  color: #fff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A0A0D;
+  line-height: 1;
+}
+
+/* ── Stars ── */
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #E8627A;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* ── Review text ── */
+.text {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14.5px;
+  font-weight: 300;
+  color: #5C3D28;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section  { padding: 56px 0 64px; }
+  .container { padding: 0 20px; }
+  .card     { flex: 0 0 300px; padding: 22px 20px 26px; }
+  .fade     { width: 60px; }
+  .marqueeTrack { animation-duration: 24s; }
+}

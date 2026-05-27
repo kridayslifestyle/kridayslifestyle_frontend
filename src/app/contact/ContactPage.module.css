@@ -1,0 +1,200 @@
+.page {
+  background: #fffafb;
+
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding: 0 24px;
+}
+
+.hero {
+  padding: 140px 0 90px;
+}
+
+.badge {
+  display: inline-block;
+
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  background: #fdecef;
+
+  color: #e8627a;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 68px;
+
+  line-height: 1.1;
+
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  max-width: 720px;
+
+  color: #666;
+
+  font-size: 19px;
+
+  line-height: 1.8;
+}
+
+.section {
+  padding-bottom: 120px;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 32px;
+}
+
+.infoCard,
+.formCard {
+  background: white;
+
+  border-radius: 32px;
+
+  padding: 40px;
+
+  border: 1px solid #f1e3e7;
+}
+
+.heading {
+  font-size: 36px;
+
+  margin-bottom: 30px;
+}
+
+.infoList {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 28px;
+}
+
+.infoItem {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.label {
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #999;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.link {
+  font-size: 18px;
+
+  color: #111;
+
+  text-decoration: none;
+}
+
+.text {
+  font-size: 18px;
+
+  color: #555;
+
+  line-height: 1.7;
+}
+
+.form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+
+  border-radius: 18px;
+
+  border: 1px solid #eadce0;
+
+  padding: 16px 18px;
+
+  outline: none;
+
+  font-size: 15px;
+}
+
+.textarea {
+  min-height: 160px;
+
+  resize: vertical;
+}
+
+.button {
+  height: 58px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: #111;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #e8627a;
+}
+
+@media (max-width: 992px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 120px 0 70px;
+  }
+
+  .title {
+    font-size: 44px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+  }
+
+}

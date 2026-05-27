@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+/* ─────────────────────────────────────────
+   KRIDAY LIFESTYLE — GLOBAL STYLES
+───────────────────────────────────────── */
+
+:root {
+  /* ── Brand Colors ── */
+  --rose:           #E8627A;
+  --rose-dark:      #C94D65;
+  --rose-light:     #F2889A;
+  --rose-pale:      #FFF0F3;
+  --rose-soft:      #FADADD;
+  --blush:          #F9E4E8;
+  --cream:          #FDF8F5;
+  --warm-white:     #FFFAF8;
+  --gold:           #C9972C;
+  --gold-light:     #E8BE6A;
+
+  /* ── Neutral Colors ── */
+  --black:          #1A0A0D;
+  --charcoal:       #2D1A1E;
+  --dark:           #3D2328;
+  --mid:            #7A5560;
+  --muted:          #B08A92;
+  --soft:           #D4B8BC;
+  --border:         #F0DDE0;
+  --border-soft:    #FAF0F2;
+
+  /* ── Typography ── */
+  --font-display:   'Cormorant Garamond', Georgia, serif;
+  --font-body:      'DM Sans', sans-serif;
+
+  /* ── Layout ── */
+  --navbar-height:  68px;
+  --announce-height: 36px;
+  --container:      1280px;
+  --section-py:     88px;
+
+  /* ── Border Radius ── */
+  --r-xs:   4px;
+  --r-sm:   6px;
+  --r:      10px;
+  --r-lg:   16px;
+  --r-xl:   24px;
+  --r-pill: 999px;
+
+  /* ── Shadows ── */
+  --shadow-xs:   0 1px 4px rgba(45,26,30,0.06);
+  --shadow-sm:   0 2px 10px rgba(232,98,122,0.08);
+  --shadow:      0 8px 32px rgba(232,98,122,0.12);
+  --shadow-lg:   0 20px 60px rgba(232,98,122,0.16);
+  --shadow-card: 0 4px 20px rgba(45,26,30,0.07);
+
+  /* ── Transitions ── */
+  --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --duration: 0.25s;
+}
+
+/* ─────────────────────────────────────────
+   RESET
+───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--warm-white);
+  color: var(--black);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY
+───────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--mid);
+}
+
+/* ─────────────────────────────────────────
+   BASE ELEMENTS
+───────────────────────────────────────── */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--duration) var(--ease);
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ─────────────────────────────────────────
+   LAYOUT UTILITIES
+───────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section-py {
+  padding-block: var(--section-py);
+}
+
+/* ─────────────────────────────────────────
+   SCROLLBAR
+───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--blush);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rose-light);
+  border-radius: var(--r-pill);
+}
+
+/* ─────────────────────────────────────────
+   TEXT SELECTION
+───────────────────────────────────────── */
+::selection {
+  background: var(--rose-soft);
+  color: var(--rose-dark);
+}
+
+/* ─────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ─────────────────────────────────────────
+   SKELETON LOADER
+───────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--blush)     25%,
+    var(--rose-soft) 50%,
+    var(--blush)     75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--r);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS NOTE
+   sm:  480px
+   md:  768px
+   lg:  1024px
+   xl:  1280px
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --section-py:     56px;
+    --navbar-height:  60px;
+  }
+  .container {
+    padding-inline: 16px;
+  }
+}

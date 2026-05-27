@@ -1,0 +1,240 @@
+.page {
+  padding: 60px 0 100px;
+  background: #fcf8f9;
+  min-height: 100vh;
+}
+
+.container {
+  width: min(1400px, 92%);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 18px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+}
+
+.form,
+.summary {
+  background: white;
+  border-radius: 28px;
+  padding: 32px;
+  border: 1px solid #f0e3e6;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.input {
+  width: 100%;
+  height: 58px;
+  border-radius: 16px;
+  border: 1px solid #eadfe2;
+  padding: 0 18px;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.radioRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.placeOrderBtn {
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 999px;
+  background: #111;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.summaryTitle {
+  font-size: 30px;
+  margin-bottom: 28px;
+}
+
+.summaryItem {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.summaryImage {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.summaryInfo {
+  flex: 1;
+}
+
+.summaryName {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.summaryMeta {
+  color: #777;
+  font-size: 14px;
+}
+
+.summaryPrice {
+  font-weight: 700;
+}
+
+.summaryRows {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.summaryRow,
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.totalRow {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+.placeOrderBtn {
+  width: 100%;
+
+  height: 64px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: #111;
+  color: white;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  margin-top: 30px;
+
+  transition: 0.25s ease;
+}
+
+.placeOrderBtn:hover {
+  background: #e8627a;
+}
+
+.couponBox {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.couponInput {
+  flex: 1;
+
+  height: 52px;
+
+  border-radius: 14px;
+
+  border: 1px solid #eadce0;
+
+  padding: 0 16px;
+
+  outline: none;
+}
+
+.applyBtn {
+  height: 52px;
+
+  padding: 0 22px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #111;
+  color: white;
+
+  cursor: pointer;
+}
+
+.appliedCoupon {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  padding: 14px 18px;
+
+  border-radius: 14px;
+
+  background: #e8f8ee;
+
+  color: #15803d;
+
+  font-weight: 600;
+}
+
+.appliedCoupon button {
+  border: none;
+
+  background: none;
+
+  color: #15803d;
+
+  cursor: pointer;
+}

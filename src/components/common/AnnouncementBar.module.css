@@ -1,0 +1,78 @@
+/* ─────────────────────────────────────────
+   ANNOUNCEMENT BAR
+   - Scrolling marquee, right → left
+   - Pauses on hover
+   - Close button on the right
+───────────────────────────────────────── */
+
+.bar {
+  position: relative;
+  height: var(--announce-height, 36px);
+  background-color: var(--rose);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 200;
+}
+
+/* ── Marquee track ── */
+.track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  /* Total width = 2× content so -50% brings us back to start */
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  /* Pause when user hovers anywhere on the bar */
+}
+
+.bar:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Individual message ── */
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding-inline: 32px;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 14px;
+}
+
+/* ── Close button ── */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+  /* Fade so text behind it isn't jarring */
+  background: linear-gradient(to right, transparent, var(--rose) 40%);
+  transition: color 0.2s;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.close:hover {
+  color: #fff;
+}

@@ -1,0 +1,182 @@
+.page {
+  background: #fffafb;
+  min-height: 100vh;
+  padding: 140px 0 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* HEADER */
+
+.header {
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: clamp(60px, 10vw, 100px);
+  line-height: 0.9;
+  margin-bottom: 14px;
+  color: #14050a;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #7b5c66;
+}
+
+/* LIST */
+
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* CARD */
+
+.orderCard {
+  background: white;
+  border-radius: 30px;
+  padding: 32px;
+
+  border: 1px solid #f0e3e6;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.04);
+
+  transition: 0.3s ease;
+}
+
+.orderCard:hover {
+  transform: translateY(-4px);
+}
+
+/* SECTIONS */
+
+.orderLeft,
+.orderMiddle,
+.orderRight {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.orderMiddle {
+  align-items: center;
+}
+
+.orderRight {
+  align-items: flex-end;
+}
+
+/* TEXT */
+
+.orderId {
+  font-size: 34px;
+  color: #14050a;
+}
+
+.orderMeta {
+  color: #7b5c66;
+  font-size: 16px;
+}
+
+/* STATUS */
+
+.status {
+  height: 42px;
+  padding: 0 18px;
+
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-transform: capitalize;
+}
+
+.pending {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.processing {
+  background: #fff7e6;
+  color: #d97706;
+}
+
+.shipped {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.delivered {
+  background: #ecfdf3;
+  color: #16a34a;
+}
+
+/* PRICE */
+
+.total {
+  font-size: 38px;
+  color: #14050a;
+}
+
+/* BUTTON */
+
+.viewBtn {
+  height: 50px;
+  padding: 0 22px;
+
+  border-radius: 999px;
+
+  background: #111;
+  color: white;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .title {
+    font-size: 72px;
+  }
+
+  .orderCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orderMiddle,
+  .orderRight {
+    align-items: flex-start;
+  }
+
+  .total {
+    font-size: 30px;
+  }
+
+}

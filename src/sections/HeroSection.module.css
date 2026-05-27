@@ -1,0 +1,274 @@
+/* ─────────────────────────────────────────
+   HERO SECTION
+   Uses CSS Modules — zero Tailwind dependency
+   so layout always works regardless of config
+───────────────────────────────────────── */
+
+/* ── Wrapper ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-color: #FEF0F3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Dot pattern */
+.dotPattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+  background-image: radial-gradient(circle, #f9a8b8 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Container ── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Two-column grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* ← THIS is what was missing */
+  gap: 48px;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+/* ─────────────────────────────────────────
+   LEFT SIDE
+───────────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 560px;
+}
+
+.eyebrow {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #E8627A;
+  margin-bottom: 28px;
+}
+
+.heading {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(60px, 7vw, 92px);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: #1A0A0D;
+  margin: 0 0 28px 0;
+}
+
+.headingAccent {
+  display: block;
+  color: #E8627A;
+  font-style: italic;
+  font-weight: 300;
+  margin-top: 4px;
+}
+
+.desc {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #9E7B65;
+  max-width: 460px;
+  margin-bottom: 36px;
+}
+
+/* ── Buttons ── */
+.btnRow {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 52px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #1A0A0D;
+  color: #fff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 30px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btnPrimary:hover {
+  background: #E8627A;
+  transform: translateY(-2px);
+}
+
+.btnGhost {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 400;
+  color: #1A0A0D;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.btnGhost::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #E8627A;
+  transition: width 0.3s ease;
+}
+.btnGhost:hover {
+  color: #E8627A;
+}
+.btnGhost:hover::after {
+  width: 100%;
+}
+
+/* ── Stats ── */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statNum {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #1A0A0D;
+}
+
+.statLabel {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  color: #B08A92;
+  letter-spacing: 0.04em;
+}
+
+.statDivider {
+  width: 1px;
+  height: 48px;
+  background: #F2BEC8;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   RIGHT SIDE
+───────────────────────────────────────── */
+.right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 32px 0;
+}
+
+.imageFrame {
+  width: 100%;
+  max-width: 620px;
+  /* tall portrait ratio matching the screenshot */
+  aspect-ratio: 3 / 4;
+  border-radius: 40px 40px 120px 40px;
+  overflow: hidden;
+  background: #E8C4B0;
+  box-shadow: 0 24px 80px rgba(232, 98, 122, 0.15);
+  flex-shrink: 0;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 6s ease;
+}
+.imageFrame:hover .heroImg {
+  transform: scale(1.04);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 32px;
+  }
+  .grid {
+    gap: 32px;
+  }
+}
+
+/* Mobile — stack vertically */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 48px;
+  }
+  .container {
+    padding: 0 20px;
+  }
+  .grid {
+    grid-template-columns: 1fr;   /* single column on mobile */
+    min-height: auto;
+    padding: 32px 0;
+    gap: 36px;
+  }
+  .left {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+  .desc {
+    text-align: center;
+  }
+  .right {
+    justify-content: center;
+    padding: 0;
+  }
+  .imageFrame {
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 24px;
+  }
+  .stats {
+    justify-content: center;
+  }
+}

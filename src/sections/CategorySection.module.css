@@ -1,0 +1,132 @@
+/* ─────────────────────────────────────────
+   CATEGORY SECTION
+───────────────────────────────────────── */
+
+.section {
+  background: #ffffff;
+  padding: 80px 0 90px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 48px;
+}
+
+.title {
+  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 400;
+  color: #1A0A0D;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.sub {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  color: #B08A92;
+  letter-spacing: 0.01em;
+}
+
+/* ── Grid — 5 columns on desktop ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px 8px;
+}
+
+/* ── Card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 12px 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.22s ease, background 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: #FFF5F7;
+}
+
+/* ── Circle ── */
+.circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #FEE8EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.card:hover .circle {
+  background: #FCCFD8;
+  transform: scale(1.06);
+}
+
+/* ── Emoji ── */
+.emoji {
+  font-size: 38px;
+  line-height: 1;
+  /* Remove browser emoji outline on some devices */
+  user-select: none;
+}
+
+/* ── Label ── */
+.name {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: #2D1A1E;
+  text-align: center;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+
+.card:hover .name {
+  color: #E8627A;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+
+/* Tablet — 5 still fits but tighter */
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .circle { width: 84px; height: 84px; }
+  .emoji  { font-size: 32px; }
+}
+
+/* Small tablet — 4 columns */
+@media (max-width: 768px) {
+  .section { padding: 56px 0 64px; }
+  .container { padding: 0 20px; }
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 12px 6px; }
+  .circle { width: 76px; height: 76px; }
+  .emoji  { font-size: 28px; }
+}
+
+/* Mobile — 3 columns */
+@media (max-width: 480px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .circle { width: 68px; height: 68px; }
+  .emoji  { font-size: 26px; }
+  .name   { font-size: 12px; }
+}
