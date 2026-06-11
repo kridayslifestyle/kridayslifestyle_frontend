@@ -8,9 +8,9 @@ import Footer from "../components/layout/Footer";
 import { Toaster } from "react-hot-toast";
 
 export const metadata = {
-  title: "Kriday Lifestyle — Premium Women's Fashion",
+  title: "Kriday Lifestyle – Premium Women's Fashion",
   description:
-    "Discover elegant, feminine fashion at Kriday Lifestyle — boutique dresses, sarees, kurtis, jewelry & accessories curated for the modern woman.",
+    "Discover elegant, feminine fashion at Kriday Lifestyle",
 };
 
 export default function RootLayout({ children }) {
