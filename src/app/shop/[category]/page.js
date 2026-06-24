@@ -36,6 +36,7 @@ export default async function CategoryPage({
     products = allProducts.filter((product) =>
       product.categorySlugs?.some((slug) =>
         [
+          "clothing",
           "dresses",
           "kurtis",
           "western-wear",
