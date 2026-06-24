@@ -1,80 +1,63 @@
 export async function getProducts() {
-
   try {
-
     const res = await fetch(
-      "http://localhost:3000/api/products",
+      `${process.env.NEXT_PUBLIC_SITE_URL}/api/products`,
       {
-        next: { revalidate: 60 },
-      }
+        cache: "no-store",
+      },
     );
 
-    const data =
-      await res.json();
+    const data = await res.json();
 
-    const normalizedProducts =
-      data.map((product) => ({
+    const normalizedProducts = data.map((product) => ({
+      id: product.id,
 
-        id: product.id,
+      name: product.name,
 
-        name: product.name,
+      slug: product.slug,
 
-        slug: product.slug,
+      price: product.price || 0,
 
-        price:
-          product.price || 0,
+      originalPrice: product.originalPrice || null,
 
-        originalPrice:
-          product.originalPrice || null,
+      image: product.image || "",
 
-        image: product.image || "",
+      images: product.images || [],
 
-        images: product.images || [],
+      category:
+        product.categorySlugs?.[0]?.toLowerCase()?.replace(/\s+/g, "-") ||
+        "uncategorized",
 
-        category:
-          product.categorySlugs?.[0]
-            ?.toLowerCase()
-            ?.replace(/\s+/g, "-") || "uncategorized",
+      categorySlugs:
+        product.categorySlugs?.map((slug) =>
+          slug.toLowerCase().replace(/\s+/g, "-"),
+        ) || [],
 
-        categorySlugs:
-          product.categorySlugs?.map((slug) =>
-            slug.toLowerCase().replace(/\s+/g, "-")
-          ) || [],
+      sizes: product.sizes || ["XS", "S", "M", "L", "XL", "XXL"],
 
+      // IMPORTANT FOR COLOR FILTER
+      color: product.color || "#000000",
 
-        sizes:
-          product.sizes || ["XS", "S", "M", "L", "XL", "XXL"],
+      // IMPORTANT FOR DISCOUNT FILTER
+      discount: product.discount || 0,
 
-        // IMPORTANT FOR COLOR FILTER
-        color:
-          product.color || "#000000",
+      description: product.description,
 
-        // IMPORTANT FOR DISCOUNT FILTER
-        discount:
-          product.discount || 0,
+      shortDescription: product.short_description,
 
-        description:
-          product.description,
+      rating: product.rating || 0,
 
-        shortDescription:
-          product.short_description,
+      reviewCount: product.reviewCount || 0,
 
-        rating: product.rating || 0,
+      inStock: product.inStock || false,
 
-        reviewCount: product.reviewCount || 0,
+      sale: product.badge === "SALE",
 
-        inStock: product.inStock || false,
-
-        sale: product.badge === "SALE",
-
-        featured: false,
-
-      }));
+      featured: false,
+    }));
 
     return normalizedProducts;
-
   } catch (error) {
-
     console.log(error);
 
     return [];

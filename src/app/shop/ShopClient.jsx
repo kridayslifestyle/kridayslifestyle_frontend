@@ -236,6 +236,10 @@ export default function ShopClient({
         return () => window.removeEventListener("resize", onResize);
     }, []);
 
+    console.log("INITIAL CATEGORY:", initialCategory);
+    console.log("PRODUCTS:", products);
+    console.log("FILTERED:", filtered);
+
     return (
         <div className={styles.page}>
 
