@@ -25,11 +25,10 @@ export default async function ProductPage({ params }) {
     id: product.id,
     name: product.name,
     slug: product.slug,
+
     price: Number(product.price),
 
-    sizes: ["S", "M", "L", "XL"],
-
-    originalPrice: Number(product.regular_price),
+    originalPrice: Number(product.originalPrice || 0),
 
     image: product.images?.[0],
 
@@ -37,15 +36,15 @@ export default async function ProductPage({ params }) {
 
     description: product.description,
 
-    shortDescription: product.short_description,
+    shortDescription: product.shortDescription,
 
     stockStatus: product.stockStatus,
 
-    rating: Number(product.average_rating || 0),
+    rating: 0,
 
-    reviewCount: Number(product.rating_count || 0),
+    reviewCount: 0,
 
-    category: product.categories?.[0]?.name,
+    category: "",
 
     features: ["Premium Quality", "Elegant Design", "Comfort Fit"],
   };
