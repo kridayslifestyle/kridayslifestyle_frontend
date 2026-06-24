@@ -7,6 +7,8 @@ export async function getProducts() {
       }
     );
 
+    console.log("STATUS:", res.status);
+
     const data = await res.json();
 
     console.log("API DATA:", data);
