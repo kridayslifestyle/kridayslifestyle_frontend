@@ -14,59 +14,39 @@ const CATEGORY_LABELS = {
   footwear: "Footwear",
 };
 
-export default async function CategoryPage({
-  params,
-}) {
-
+export default async function CategoryPage({ params }) {
   const { category } = await params;
 
-  const label =
-    CATEGORY_LABELS[category] ||
-    category;
+  const label = CATEGORY_LABELS[category] || category;
 
   // GET ALL PRODUCTS
-  const allProducts =
-    await getProducts();
+  const allProducts = await getProducts();
+  console.log("SERVER PRODUCTS:", allProducts.length);
 
   // FILTER LOCALLY
   let products = [];
 
   if (category === "clothing") {
-
     products = allProducts.filter((product) =>
       product.categorySlugs?.some((slug) =>
-        [
-          "clothing",
-          "dresses",
-          "kurtis",
-          "western-wear",
-          "sarees"
-        ].includes(slug)
-      )
+        ["clothing", "dresses", "kurtis", "western-wear", "sarees"].includes(
+          slug,
+        ),
+      ),
     );
-
   } else if (category === "accessories") {
-
     products = allProducts.filter((product) =>
       product.categorySlugs?.some((slug) =>
-        [
-          "accessories",
-          "jewelry",
-          "handbags"
-        ].includes(slug)
-      )
+        ["accessories", "jewelry", "handbags"].includes(slug),
+      ),
     );
-
   } else if (category === "footwear") {
-
     products = allProducts.filter((product) =>
-      product.categorySlugs?.includes("shoes")
+      product.categorySlugs?.includes("shoes"),
     );
-
   } else {
-
     products = allProducts.filter((product) =>
-      product.categorySlugs?.includes(category)
+      product.categorySlugs?.includes(category),
     );
   }
 
