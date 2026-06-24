@@ -1,7 +1,7 @@
 export async function getProducts() {
   try {
     const res = await fetch(
-      "https://kridaylifestyle.in/api/products",
+      "https://www.kridaylifestyle.in/api/products",
       {
         cache: "no-store",
       }
