@@ -1,132 +1,305 @@
-/* ─────────────────────────────────────────
-   CATEGORY SECTION
-───────────────────────────────────────── */
-
 .section {
   background: #ffffff;
-  padding: 80px 0 90px;
+  padding: 72px 0 80px;
 }
 
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 40px;
 }
 
-/* ── Header ── */
+/* Header */
+
 .header {
-  margin-bottom: 48px;
+  margin-bottom: 42px;
 }
 
 .title {
-  font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
-  font-size: clamp(32px, 4vw, 46px);
+  font-family: var(
+    --font-display,
+    "Cormorant Garamond",
+    Georgia,
+    serif
+  );
+
+  font-size: clamp(34px, 4vw, 48px);
   font-weight: 400;
-  color: #1A0A0D;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 8px;
+
+  color: #1a0a0d;
+
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+
+  margin: 0 0 8px;
 }
 
 .sub {
-  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-family: var(
+    --font-body,
+    "DM Sans",
+    sans-serif
+  );
+
   font-size: 14px;
   font-weight: 400;
-  color: #B08A92;
+
+  color: #b08a92;
+
   letter-spacing: 0.01em;
+
+  margin: 0;
 }
 
-/* ── Grid — 5 columns on desktop ── */
+/* ================================
+   CATEGORY GRID
+================================ */
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px 8px;
+
+  /* ALL 7 IN ONE ROW */
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+
+  gap: 12px;
+
+  width: 100%;
 }
 
-/* ── Card ── */
+/* ================================
+   CATEGORY CARD
+================================ */
+
 .card {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
+  justify-content: flex-start;
+
   gap: 14px;
-  padding: 20px 12px 16px;
-  border-radius: 16px;
+
+  padding: 18px 8px 20px;
+
+  border-radius: 20px;
+
   text-decoration: none;
+
   cursor: pointer;
-  transition: transform 0.22s ease, background 0.22s ease;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  background: #FFF5F7;
+
+  background: #fff6f8;
 }
 
-/* ── Circle ── */
+/* ================================
+   ICON CIRCLE
+================================ */
+
 .circle {
-  width: 96px;
-  height: 96px;
+  width: 92px;
+  height: 92px;
+
   border-radius: 50%;
-  background: #FEE8EC;
+
+  background: #fee8ec;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
+
+  color: #d95c72;
+
   flex-shrink: 0;
-  transition: background 0.22s ease, transform 0.22s ease;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.circle svg {
+  width: 42px;
+  height: 42px;
+
+  display: block;
 }
 
 .card:hover .circle {
-  background: #FCCFD8;
-  transform: scale(1.06);
+  background: #fbd2db;
+
+  color: #e8627a;
+
+  transform: scale(1.08);
 }
 
-/* ── Emoji ── */
-.emoji {
-  font-size: 38px;
-  line-height: 1;
-  /* Remove browser emoji outline on some devices */
-  user-select: none;
-}
+/* ================================
+   CATEGORY NAME
+================================ */
 
-/* ── Label ── */
 .name {
-  font-family: var(--font-body, 'DM Sans', sans-serif);
-  font-size: 14px;
+  font-family: var(
+    --font-body,
+    "DM Sans",
+    sans-serif
+  );
+
+  font-size: 15px;
+
   font-weight: 500;
-  color: #2D1A1E;
+
+  color: #2d1a1e;
+
   text-align: center;
+
   letter-spacing: 0.01em;
-  transition: color 0.2s;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
 }
 
 .card:hover .name {
-  color: #E8627A;
+  color: #e8627a;
 }
 
-/* ─────────────────────────────────────────
-   RESPONSIVE
-───────────────────────────────────────── */
+/* ================================
+   LARGE TABLET
+================================ */
 
-/* Tablet — 5 still fits but tighter */
-@media (max-width: 1024px) {
-  .container { padding: 0 32px; }
-  .circle { width: 84px; height: 84px; }
-  .emoji  { font-size: 32px; }
+@media (max-width: 1100px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .grid {
+    gap: 6px;
+  }
+
+  .circle {
+    width: 82px;
+    height: 82px;
+  }
+
+  .circle svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
 }
 
-/* Small tablet — 4 columns */
-@media (max-width: 768px) {
-  .section { padding: 56px 0 64px; }
-  .container { padding: 0 20px; }
-  .grid { grid-template-columns: repeat(4, 1fr); gap: 12px 6px; }
-  .circle { width: 76px; height: 76px; }
-  .emoji  { font-size: 28px; }
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 800px) {
+  .section {
+    padding: 58px 0 65px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  /*
+    Keep one row.
+    User can swipe horizontally.
+  */
+
+  .grid {
+    display: flex;
+
+    gap: 12px;
+
+    overflow-x: auto;
+
+    padding: 5px 2px 15px;
+
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    min-width: 105px;
+
+    flex-shrink: 0;
+
+    padding: 12px 8px 15px;
+  }
+
+  .circle {
+    width: 76px;
+    height: 76px;
+  }
+
+  .circle svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .name {
+    font-size: 13px;
+  }
 }
 
-/* Mobile — 3 columns */
+/* ================================
+   MOBILE
+================================ */
+
 @media (max-width: 480px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
-  .circle { width: 68px; height: 68px; }
-  .emoji  { font-size: 26px; }
-  .name   { font-size: 12px; }
+  .section {
+    padding: 48px 0 55px;
+  }
+
+  .header {
+    margin-bottom: 28px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .sub {
+    font-size: 13px;
+  }
+
+  .grid {
+    gap: 8px;
+  }
+
+  .card {
+    min-width: 92px;
+
+    gap: 11px;
+  }
+
+  .circle {
+    width: 68px;
+    height: 68px;
+  }
+
+  .circle svg {
+    width: 29px;
+    height: 29px;
+  }
+
+  .name {
+    font-size: 12px;
+  }
 }
