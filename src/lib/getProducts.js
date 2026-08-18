@@ -17,10 +17,17 @@ export async function getProducts() {
       id: product.id,
       name: product.name,
       slug: product.slug,
-      price: product.price || 0,
+
+      price: Number(product.price || 0),
+
       categorySlugs: product.categorySlugs || [],
+
       image: product.image || "",
       images: product.images || [],
+
+      
+      sizes: product.sizes || [],
+
       inStock: product.inStock || false,
     }));
 
