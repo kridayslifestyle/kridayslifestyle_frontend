@@ -1,171 +1,103 @@
 .section {
   background: #ffffff;
-  padding: 72px 0 80px;
+  padding: 70px 0 80px;
 }
 
 .container {
   width: 100%;
-  max-width: 1380px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
 }
 
-/* Header */
-
 .header {
-  margin-bottom: 42px;
+  margin-bottom: 50px;
 }
 
 .title {
-  font-family: var(
-    --font-display,
-    "Cormorant Garamond",
-    Georgia,
-    serif
-  );
-
+  font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
   font-size: clamp(34px, 4vw, 48px);
   font-weight: 400;
-
   color: #1a0a0d;
-
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-
+  letter-spacing: -0.02em;
+  line-height: 1.1;
   margin: 0 0 8px;
 }
 
 .sub {
-  font-family: var(
-    --font-body,
-    "DM Sans",
-    sans-serif
-  );
-
+  font-family: var(--font-body, "DM Sans", sans-serif);
   font-size: 14px;
-  font-weight: 400;
-
   color: #b08a92;
-
-  letter-spacing: 0.01em;
-
   margin: 0;
 }
 
-/* ================================
-   CATEGORY GRID
-================================ */
+/* Seven categories in one row */
 
 .grid {
   display: grid;
-
-  /* ALL 7 IN ONE ROW */
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-
-  gap: 12px;
-
-  width: 100%;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px;
+  align-items: start;
 }
 
-/* ================================
-   CATEGORY CARD
-================================ */
+/* Category card */
 
 .card {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
-  justify-content: flex-start;
-
-  gap: 14px;
-
-  padding: 18px 8px 20px;
-
-  border-radius: 20px;
-
+  gap: 16px;
+  padding: 10px 6px 14px;
+  border-radius: 18px;
   text-decoration: none;
-
   cursor: pointer;
-
   transition:
     transform 0.25s ease,
     background 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-
+  transform: translateY(-6px);
   background: #fff6f8;
 }
 
-/* ================================
-   ICON CIRCLE
-================================ */
+/* Category image */
 
-.circle {
-  width: 92px;
-  height: 92px;
-
+.imageWrap {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-
+  overflow: hidden;
   background: #fee8ec;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  color: #d95c72;
-
-  flex-shrink: 0;
-
+  position: relative;
   transition:
-    background 0.25s ease,
     transform 0.25s ease,
-    color 0.25s ease;
+    box-shadow 0.25s ease;
 }
 
-.circle svg {
-  width: 42px;
-  height: 42px;
+.card:hover .imageWrap {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(232, 98, 122, 0.18);
+}
 
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  transition: transform 0.35s ease;
 }
 
-.card:hover .circle {
-  background: #fbd2db;
-
-  color: #e8627a;
-
+.card:hover .image {
   transform: scale(1.08);
 }
 
-/* ================================
-   CATEGORY NAME
-================================ */
-
 .name {
-  font-family: var(
-    --font-body,
-    "DM Sans",
-    sans-serif
-  );
-
+  font-family: var(--font-body, "DM Sans", sans-serif);
   font-size: 15px;
-
   font-weight: 500;
-
   color: #2d1a1e;
-
   text-align: center;
-
-  letter-spacing: 0.01em;
-
-  white-space: nowrap;
-
   transition: color 0.2s ease;
 }
 
@@ -173,84 +105,42 @@
   color: #e8627a;
 }
 
-/* ================================
-   LARGE TABLET
-================================ */
+/* Tablet */
 
 @media (max-width: 1100px) {
   .container {
-    padding: 0 30px;
+    padding: 0 32px;
   }
 
   .grid {
-    gap: 6px;
+    gap: 10px;
   }
 
-  .circle {
-    width: 82px;
-    height: 82px;
-  }
-
-  .circle svg {
-    width: 36px;
-    height: 36px;
-  }
-
-  .name {
-    font-size: 14px;
+  .imageWrap {
+    width: 120px;
+    height: 120px;
   }
 }
 
-/* ================================
-   TABLET
-================================ */
+/* Mobile */
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .section {
-    padding: 58px 0 65px;
+    padding: 55px 0 65px;
   }
 
   .container {
     padding: 0 20px;
   }
 
-  /*
-    Keep one row.
-    User can swipe horizontally.
-  */
-
   .grid {
-    display: flex;
-
-    gap: 12px;
-
-    overflow-x: auto;
-
-    padding: 5px 2px 15px;
-
-    scrollbar-width: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px 8px;
   }
 
-  .grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .card {
-    min-width: 105px;
-
-    flex-shrink: 0;
-
-    padding: 12px 8px 15px;
-  }
-
-  .circle {
-    width: 76px;
-    height: 76px;
-  }
-
-  .circle svg {
-    width: 32px;
-    height: 32px;
+  .imageWrap {
+    width: 90px;
+    height: 90px;
   }
 
   .name {
@@ -258,45 +148,16 @@
   }
 }
 
-/* ================================
-   MOBILE
-================================ */
+/* Small mobile */
 
 @media (max-width: 480px) {
-  .section {
-    padding: 48px 0 55px;
-  }
-
-  .header {
-    margin-bottom: 28px;
-  }
-
-  .title {
-    font-size: 34px;
-  }
-
-  .sub {
-    font-size: 13px;
-  }
-
   .grid {
-    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .card {
-    min-width: 92px;
-
-    gap: 11px;
-  }
-
-  .circle {
-    width: 68px;
-    height: 68px;
-  }
-
-  .circle svg {
-    width: 29px;
-    height: 29px;
+  .imageWrap {
+    width: 82px;
+    height: 82px;
   }
 
   .name {
