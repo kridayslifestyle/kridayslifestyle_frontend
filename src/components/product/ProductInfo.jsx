@@ -16,6 +16,7 @@ export default function ProductInfo({ product }) {
   const [addedToCart, setAddedToCart] = useState(false);
 
   // ── Contexts ──
+  // - Fake redeployment change 
   const { addToCart } = useCart();
   const { toggleWishlist, isWishlisted } = useWishlist();
 
