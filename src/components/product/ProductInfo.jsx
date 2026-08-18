@@ -6,6 +6,9 @@ import { useWishlist } from "@/context/WishlistContext";
 import styles from "./ProductInfo.module.css";
 
 export default function ProductInfo({ product }) {
+
+  console.log("PRODUCT INFO:", product);
+  console.log("PRODUCT SIZES:", product?.sizes);
   
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
