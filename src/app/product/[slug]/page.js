@@ -40,6 +40,8 @@ export default async function ProductPage({ params }) {
 
     stockStatus: product.stockStatus,
 
+    sizes: product.sizes || ["S", "M", "L", "XL", "XXL"],
+
     rating: 0,
 
     reviewCount: 0,
