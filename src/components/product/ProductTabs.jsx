@@ -10,7 +10,6 @@ export default function ProductTabs({ product }) {
 
   return (
     <div className={styles.wrapper}>
-
       {/* Tab buttons */}
       <div className={styles.tabRow}>
         {TABS.map((tab, i) => (
@@ -26,13 +25,11 @@ export default function ProductTabs({ product }) {
 
       {/* Tab content */}
       <div className={styles.content}>
-
         {/* Description */}
         {active === 0 && (
           <div className={styles.panel}>
             <div
               className={styles.desc}
-
               dangerouslySetInnerHTML={{
                 __html: product.description,
               }}
@@ -57,7 +54,13 @@ export default function ProductTabs({ product }) {
                   ["SKU", product.sku],
                   ["Category", product.category],
                   ["Sizes", product.sizes.join(", ")],
-                  ["Availability", product.inStock ? "In Stock" : "Out of Stock"],
+                  [
+                    "Availability",
+                    product.stockStatus === "instock" ||
+                    product.stockStatus === "in_stock"
+                      ? "In Stock"
+                      : "Out of Stock",
+                  ],
                 ].map(([key, val]) => (
                   <tr key={key} className={styles.tableRow}>
                     <td className={styles.tableKey}>{key}</td>
@@ -104,7 +107,6 @@ export default function ProductTabs({ product }) {
             ))}
           </div>
         )}
-
       </div>
     </div>
   );
