@@ -138,6 +138,8 @@ export default function CheckoutPage() {
 
       const orderData = {
 
+        customer_id: user.id,
+
         payment_method:
           form.payment,
 

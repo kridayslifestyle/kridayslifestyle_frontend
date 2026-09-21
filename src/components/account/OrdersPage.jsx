@@ -20,13 +20,13 @@ export default function OrdersPage() {
 
     async function fetchOrders() {
 
-      if (!user?.email) return;
+      if (!user?.id) return;
 
       try {
 
         const res = await fetch(
 
-          `/api/orders?email=${user.email}`
+          `/api/orders?customerId=${user.id}`
 
         );
 
