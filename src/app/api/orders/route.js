@@ -27,7 +27,7 @@ export async function GET(req) {
       response.data
     );
 
-  } catch (error) {
+  } catch (error) {const { user } = useAuth();
 
     console.log(error);
 
