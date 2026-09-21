@@ -1,61 +1,36 @@
 import api from "@/lib/woocommerce";
 
-import {
-  NextResponse
-}
-from "next/server";
+import { NextResponse } from "next/server";
 
-import {
-  sendOrderEmail
-}
-from "@/lib/mailer";
+import { sendOrderEmail } from "@/lib/mailer";
 
-export async function POST(
-  request
-) {
-
+export async function POST(request) {
   try {
-
-    const body =
-      await request.json();
+    const body = await request.json();
 
     // Create WooCommerce order
-    const response =
-      await api.post(
-        "orders",
-        body
-      );
+    const response = await api.post("orders", body);
 
     // ─────────────────────────────
     // SEND ORDER EMAIL
     // ─────────────────────────────
     await sendOrderEmail(
-
       body.billing.email,
-
       response.data.id,
-
-      response.data.total
-
+      response.data.total,
+      response.data.payment_method_title,
     );
 
-    return NextResponse.json(
-      response.data
-    );
-
+    return NextResponse.json(response.data);
   } catch (error) {
-
     console.log(error);
 
     return NextResponse.json(
-
       {
-        error:
-          "Failed to create order",
+        error: "Failed to create order",
       },
 
-      { status: 500 }
-
+      { status: 500 },
     );
   }
 }

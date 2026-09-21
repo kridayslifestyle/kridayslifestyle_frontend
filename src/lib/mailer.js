@@ -127,17 +127,12 @@ export async function sendWelcomeEmail(
 // ORDER EMAIL
 // ─────────────────────────────
 export async function sendOrderEmail(
-
   email,
-
   orderId,
-
-  total
-
+  total,
+  paymentMethod
 ) {
-
   await transporter.sendMail({
-
     from:
       `"Kriday Lifestyle" <${process.env.SMTP_USER}>`,
 
@@ -147,16 +142,14 @@ export async function sendOrderEmail(
       `Order #${orderId} Confirmed 🎉`,
 
     html:
-      orderEmailTemplate(
-
-        orderId,
-
-        total
-
-      ),
+      orderEmailTemplate({
+        id: orderId,
+        total: total,
+        payment_method_title:
+          paymentMethod,
+      }),
   });
 }
-
 // ─────────────────────────────
 // PASSWORD RESET EMAIL
 // ─────────────────────────────
